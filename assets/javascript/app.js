@@ -1,4 +1,16 @@
-var topics = ["cat", "dog", "bird","horses","capybara"];
+var topics = ["cat", "dog", "bird","horse","capybara"];
+
+//    <button data-animal="cat">Cat</button>
+for (var i=0; i<topics.length; i++){
+    var b= document.createElement("button");
+    b.innerText=topics[i];
+    b.setAttribute("data-animal", topics[i]);
+    var d= document.getElementById("divButtons");
+    d.append(b);
+}
+
+
+
 $("button").on("click", function(){
     var animal= $(this).attr("data-animal");
 
