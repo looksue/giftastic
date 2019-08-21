@@ -1,4 +1,4 @@
-var topics = ["raccoon", "elephant", "bird", "horse", "capybara"];
+var topics = ["pig", "elephant", "bird", "horse", "capybara"];
 
 // making a button for each array item
 for (var i = 0; i < topics.length; i++) {
@@ -11,7 +11,7 @@ for (var i = 0; i < topics.length; i++) {
     d.append(b);
 }
 
-$("button").on("click", function () {
+$("#divButtons").on("click", "button", function () {
     var animal = $(this).attr("data-animal");
 
     //constructing query
@@ -54,7 +54,7 @@ $("button").on("click", function () {
         })
 })
 
-// event listener for the new animal button
+// event listener for the new submit button
 $("#btnSubmit").on("click", function () {
     //keep the form submit from refreshing the page
     //because that deletes the new button we're making
