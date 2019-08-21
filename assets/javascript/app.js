@@ -2,7 +2,7 @@ var topics = ["raccoon", "elephant", "bird", "horse", "capybara"];
 
 // making a button for each array item
 for (var i = 0; i < topics.length; i++) {
-   // var b = $('<divbutton>' + divform.text + '</button>')
+    // var b = $('<divbutton>' + divform.text + '</button>')
     //buttons.append('topics');
     var b = document.createElement("button");
     b.innerText = topics[i];
@@ -56,22 +56,29 @@ $("button").on("click", function () {
 
 // event listener for the new animal button
 $("#btnSubmit").on("click", function () {
+    //keep the form submit from refreshing the page
+    //because that deletes the new button we're making
     event.preventDefault();
     submitform();
 })
 
 //add a new animal button
 function submitform() {
-    var a =document.getElementById("newAnimal").value;
-    if (document.myForm.onsubmit &&
-        !document.myForm.onsubmit()) {
-        console.log ("Just before return");
-            return;
+    //get a pointer to our user input
+    var a = document.getElementById("newAnimal").value;
+    //make sure the user input isn't blank
+    if (a == "") {
+        return;
     }
+    // create a new button and point a variable at it
     var b = document.createElement("button");
+    //labeling the new button with the text input from user    
     b.innerText = a;
     b.setAttribute("data-animal", a);
+    //get a pointer to our div that contains the buttons
     var d = document.getElementById("divButtons");
+    //append the button to the div
     d.append(b);
-    document.getElementById("newAnimal").value="";
+    //clear the text input box 
+    document.getElementById("newAnimal").value = "";
 }
