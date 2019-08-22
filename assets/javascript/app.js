@@ -1,9 +1,8 @@
-var topics = ["pig", "elephant", "bird", "horse", "capybara"];
+var topics = ["pig", "elephant", "shark", "horse", "capybara"];
+var results;
 
 // making a button for each array item
 for (var i = 0; i < topics.length; i++) {
-    // var b = $('<divbutton>' + divform.text + '</button>')
-    //buttons.append('topics');
     var b = document.createElement("button");
     b.innerText = topics[i];
     b.setAttribute("data-animal", topics[i]);
@@ -12,6 +11,9 @@ for (var i = 0; i < topics.length; i++) {
 }
 
 $("#divButtons").on("click", "button", function () {
+    
+    $("#gifs-appear-here").empty();
+
     var animal = $(this).attr("data-animal");
 
     //constructing query
@@ -22,11 +24,13 @@ $("#divButtons").on("click", "button", function () {
         url: queryURL,
         method: "GET"
     })
-        .then(function(response) {
-            console.log(queryURL);
+        .then(function (response) {
 
             //storing the data from request
-            var results = response.data;
+            results = response.data;
+            
+            var p = $("<p>").text("Click any of the images to toggle animation:");
+            $("#gifs-appear-here").prepend(p);
 
             //looping through results
             for (var i = 0; i < results.length; i++) {
@@ -35,23 +39,33 @@ $("#divButtons").on("click", "button", function () {
                 var animalDiv = $("<div>");
                 animalDiv.css("display", "inline-block");
                 //create a p tag with items rating
-                var p = $("<p>").text("Rating: " + results[i].rating);
+                p = $("<p>").text("Rating: " + results[i].rating);
 
                 //create and store image tag
                 var animalImage = $("<img>");
 
                 //set src attr of image to a property pulled off result item, is fixed height the attr?
-                animalImage.attr("src", results[i].images.fixed_height.url);
+                animalImage.attr("src", results[i].images.fixed_height_still.url);
 
                 //append the p and img tag to animal div
                 animalDiv.append(p);
                 animalDiv.append(animalImage);
 
                 //prepend the animaldiv to gifs container 
-                 $("#gifs-appear-here").prepend(animalDiv);
-        }
-
+                $("#gifs-appear-here").append(animalDiv);
+            }
         })
+})
+
+$("#gifs-appear-here").on("click", "img", function () {
+    //toggle still mode and animated mode
+    for (var i = 0; i < results.length; i++) {
+        if (($(this).attr("src")) == results[i].images.fixed_height_still.url) {
+            $(this).attr("src", results[i].images.fixed_height.url);
+        } else if (($(this).attr("src")) == results[i].images.fixed_height.url) {
+            $(this).attr("src", results[i].images.fixed_height_still.url);
+        }
+    }
 })
 
 // event listener for the new submit button
