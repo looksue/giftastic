@@ -47,8 +47,8 @@ $("#divButtons").on("click", "button", function () {
                 animalImage.attr("src", results[i].images.fixed_height_still.url);
 
                 //append the p and img tag to animal div
-                animalDiv.append(p);
                 animalDiv.append(animalImage);
+                animalDiv.append(p);
 
                 //prepend the animaldiv to gifs container 
                 $("#gifs-appear-here").append(animalDiv);
