@@ -9,9 +9,7 @@ for (var i = 0; i < topics.length; i++) {
     var d = document.getElementById("divButtons");
     d.append(b);
 }
-
 $("#divButtons").on("click", "button", function () {
-    
     $("#gifs-appear-here").empty();
 
     var animal = $(this).attr("data-animal");
@@ -28,7 +26,7 @@ $("#divButtons").on("click", "button", function () {
 
             //storing the data from request
             results = response.data;
-            
+
             var p = $("<p>").text("Click any of the images to toggle animation:");
             $("#gifs-appear-here").prepend(p);
 

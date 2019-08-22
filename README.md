@@ -1,2 +1,2 @@
 # giftastic
-This is a GIPHY API web page that populates with your choice of GIPHY's and uses JavaScript and JQuery to change the inner HTML of the site.
+This is a GIPHY API web page that populates the page with your choice of animal GIPHY's. It uses JavaScript and JQuery. The user has the option of toggling between animation and still images. It also adds the rating to the images for the user to see. 
