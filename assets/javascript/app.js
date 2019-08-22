@@ -1,4 +1,4 @@
-var topics = ["pig", "elephant", "shark", "horse", "capybara"];
+var topics = ["pig", "snowmobile", "shark", "pizza", "capybara"];
 var results;
 
 // making a button for each array item
@@ -10,6 +10,7 @@ for (var i = 0; i < topics.length; i++) {
     d.append(b);
 }
 $("#divButtons").on("click", "button", function () {
+    //empty the div container to prevent giphy overload (nobody needs that many!)
     $("#gifs-appear-here").empty();
 
     var animal = $(this).attr("data-animal");
