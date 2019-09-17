@@ -38,10 +38,10 @@ $("#divButtons").on("click", "button", function () {
                 var animalDiv = $("<div>");
                 animalDiv.css("display", "inline-block");
                 //create a p tag with items rating
-                p = $("<p>").text("Rating: " + results[i].rating);
+                p = $("<p style='margin-top: 0px'>").text("Rating: " + results[i].rating.toUpperCase());
 
                 //create and store image tag
-                var animalImage = $("<img>");
+                var animalImage = $("<img style='border-style:solid; border-width: 1px; margin-bottom: 0px'>");
 
                 //set src attr of image to a property pulled off result item, is fixed height the attr?
                 animalImage.attr("src", results[i].images.fixed_height_still.url);
