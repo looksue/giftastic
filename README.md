@@ -28,4 +28,4 @@ $("#gifs-appear-here").on("click", "img", function () {
 
 ![Giftastic](https://github.com/looksue/giftastic/blob/master/assets/images/screenshot.png)
 
- **Link to Repository:** https://looksue.github.io/giftastic/
+ **Link to Project:** https://looksue.github.io/giftastic/
