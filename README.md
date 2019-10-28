@@ -1,7 +1,11 @@
 # Giftastic
 This is a GIPHY API web app that populates the page with your choice of topical GIPHY's. It uses JavaScript and JQuery. The user has the option of toggling between animation and still images. It also fetches and displays the rating of each image.
-
 The user can enter a new topic of their choice and the app will create a button on the fly to display GIPHY's when pressed. 
+
+# How to use:
+
+1. Choose either one of the topics at the top of the page or add your own topic and hit submit. 
+2. To trigger the animation, click on the desired image.
 
 **Motivation:** To use JQuery to add elements to the DOM and extend listeners to newly appended children.  
 
